@@ -27,7 +27,7 @@
 //  *  Mount, a function that allows for mounting a Server as a file system.
 //
 // Make sure to see the examples in the sub-packages of samples/, which double
-// as tests for this package: http://godoc.org/github.com/jacobsa/fuse/samples
+// as tests for this package: http://godoc.org/github.com/u-root/fuse/samples
 //
 // In order to use this package to mount file systems on OS X, the system must
 // have FUSE for OS X installed (see http://osxfuse.github.io/). Do note that

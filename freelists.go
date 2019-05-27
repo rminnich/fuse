@@ -17,7 +17,7 @@ package fuse
 import (
 	"unsafe"
 
-	"github.com/jacobsa/fuse/internal/buffer"
+	"github.com/u-root/fuse/internal/buffer"
 )
 
 ////////////////////////////////////////////////////////////////////////

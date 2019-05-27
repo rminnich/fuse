@@ -23,7 +23,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/jacobsa/fuse"
+	"github.com/u-root/fuse"
 	"github.com/jacobsa/ogletest"
 	"github.com/jacobsa/timeutil"
 )

@@ -17,8 +17,8 @@ package fuseutil
 import (
 	"context"
 
-	"github.com/jacobsa/fuse"
-	"github.com/jacobsa/fuse/fuseops"
+	"github.com/u-root/fuse"
+	"github.com/u-root/fuse/fuseops"
 )
 
 // A FileSystem that responds to all ops with fuse.ENOSYS. Embed this in your

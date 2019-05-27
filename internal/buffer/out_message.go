@@ -20,7 +20,7 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/jacobsa/fuse/internal/fusekernel"
+	"github.com/u-root/fuse/internal/fusekernel"
 )
 
 // OutMessageHeaderSize is the size of the leading header in every

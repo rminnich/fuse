@@ -20,9 +20,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/jacobsa/fuse"
-	"github.com/jacobsa/fuse/fuseops"
-	"github.com/jacobsa/fuse/fuseutil"
+	"github.com/u-root/fuse"
+	"github.com/u-root/fuse/fuseops"
+	"github.com/u-root/fuse/fuseutil"
 	"github.com/jacobsa/timeutil"
 )
 

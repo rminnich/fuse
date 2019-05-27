@@ -1,7 +1,6 @@
 package fuse
 
 import (
-	"bytes"
 	"fmt"
 	"net"
 	"os"
@@ -35,10 +34,8 @@ func mount(
 	defer readFile.Close()
 
 	// Start fusermount, passing it a buffer in which to write stderr.
-	var stderr bytes.Buffer
-
 	cmd := exec.Command(
-		"fusermount",
+		"/bin/fusermount",
 		"-o", cfg.toOptionsString(),
 		"--",
 		dir,
@@ -46,12 +43,11 @@ func mount(
 
 	cmd.Env = append(os.Environ(), "_FUSE_COMMFD=3")
 	cmd.ExtraFiles = []*os.File{writeFile}
-	cmd.Stderr = &stderr
 
+	fmt.Printf("args %s", cmd.Args)
 	// Run the command.
-	err = cmd.Run()
-	if err != nil {
-		err = fmt.Errorf("running fusermount: %v\n\nstderr:\n%s", err, stderr.Bytes())
+	if o, e := cmd.CombinedOutput(); e != nil {
+		err = fmt.Errorf("running fusermount: %v, %v\n\noutput:\n%s", cmd.Args, e, o)
 		return
 	}
 

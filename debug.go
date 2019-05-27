@@ -19,7 +19,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/jacobsa/fuse/fuseops"
+	"github.com/u-root/fuse/fuseops"
 )
 
 // Decide on the name of the given op.
@@ -43,6 +43,10 @@ func describeRequest(op interface{}) (s string) {
 	// Include an inode number, if available.
 	if f := v.FieldByName("Inode"); f.IsValid() {
 		addComponent("inode %v", f.Interface())
+	}
+
+	if f := v.FieldByName("Handle"); f.IsValid() {
+		addComponent("Handle %v", f.Interface())
 	}
 
 	// Include a parent inode number, if available.

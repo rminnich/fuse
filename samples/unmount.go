@@ -20,7 +20,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jacobsa/fuse"
+	"github.com/u-root/fuse"
 )
 
 // Unmount the file system mounted at the supplied directory. Try again on

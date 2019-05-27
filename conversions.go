@@ -24,9 +24,9 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/jacobsa/fuse/fuseops"
-	"github.com/jacobsa/fuse/internal/buffer"
-	"github.com/jacobsa/fuse/internal/fusekernel"
+	"github.com/u-root/fuse/fuseops"
+	"github.com/u-root/fuse/internal/buffer"
+	"github.com/u-root/fuse/internal/fusekernel"
 )
 
 ////////////////////////////////////////////////////////////////////////

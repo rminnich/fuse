@@ -110,7 +110,7 @@ func getToolContentsImpl() (contents []byte, err error) {
 		"build",
 		"-o",
 		toolPath,
-		"github.com/jacobsa/fuse/samples/mount_sample")
+		"github.com/u-root/fuse/samples/mount_sample")
 
 	output, err := cmd.CombinedOutput()
 	if err != nil {
