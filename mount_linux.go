@@ -35,7 +35,7 @@ func mount(
 
 	// Start fusermount, passing it a buffer in which to write stderr.
 	cmd := exec.Command(
-		"/bin/fusermount",
+		"fusermount",
 		"-o", cfg.toOptionsString(),
 		"--",
 		dir,
