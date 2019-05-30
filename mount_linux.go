@@ -33,13 +33,19 @@ func mount(
 	readFile := os.NewFile(uintptr(fds[1]), "fusermount-parent-reads")
 	defer readFile.Close()
 
+	// The location of fusermount is amazingly inconsistent across our test
+	// infrastructure, u-root, and desktops. This loop attempts to find it,
+	// giving preference to /bin and /usr/bin.
+	fu := "fusermount"
+	for _, n := range []string{"/bin/fusermount", "/usr/bin/fusermount", "fusermount"} {
+		if s, err := exec.LookPath(n); err == nil {
+			fu = s
+			break
+		}
+	}
+
 	// Start fusermount, passing it a buffer in which to write stderr.
-	cmd := exec.Command(
-		"fusermount",
-		"-o", cfg.toOptionsString(),
-		"--",
-		dir,
-	)
+	cmd := exec.Command(fu, "-o", cfg.toOptionsString(), "--", dir)
 
 	cmd.Env = append(os.Environ(), "_FUSE_COMMFD=3")
 	cmd.ExtraFiles = []*os.File{writeFile}
